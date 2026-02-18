@@ -19,8 +19,8 @@ TC017,Very long first name,Wolfeschlegelsteinhausenbergerdorff,Smith,WS,%FirstNa
 TC018,Very long last name,John,Wolfeschlegelsteinhausenbergerdorff,JW,%FirstName%.%LastName%,John.Wolfeschlegelsteinhausenbergerdorff,Boundary,Not Executed,Extremely long last name (38 characters)
 TC019,Single character first name,A,Smith,AS,%FirstName%.%LastName%,A.Smith,Boundary,Not Executed,Minimum length first name
 TC020,Single character last name,John,X,JX,%FirstName%.%LastName%,John.X,Boundary,Not Executed,Minimum length last name
-TC021,Empty first name field,,Smith,S,%FirstName%.%LastName%,.Smith,Negative,Not Executed,Missing first name - should fail validation
-TC022,Empty last name field,John,,,J,%FirstName%.%LastName%,John.,Negative,Not Executed,Missing last name - should fail validation
+TC021,Empty first name field,"",Smith,S,%FirstName%.%LastName%,.Smith,Negative,Not Executed,Missing first name - should fail validation
+TC022,Empty last name field,John,"",J,%FirstName%.%LastName%,John.,Negative,Not Executed,Missing last name - should fail validation
 TC023,First name with number,John2,Smith,JS,%FirstName%.%LastName%,John2.Smith,Edge Case,Not Executed,Numeric character in first name
 TC024,Last name with number,John,Smith3,JS,%FirstName%.%LastName%,John.Smith3,Edge Case,Not Executed,Numeric character in last name
 TC025,FirstName with leading space, John,Smith,JS,%FirstName%.%LastName%, John.Smith,Edge Case,Not Executed,Leading space handling - should be trimmed
@@ -32,7 +32,7 @@ TC030,Arabic characters in name,محمد,علي,MA,%FirstName%.%LastName%,محم
 TC031,Duplicate handling - append 1,John,Smith,JS,%FirstName%.%LastName%,John.Smith1,Positive,Not Executed,First duplicate - append number 1
 TC032,Duplicate handling - append 2,John,Smith,JS,%FirstName%.%LastName%,John.Smith2,Positive,Not Executed,Second duplicate - append number 2
 TC033,Full display name format,John,Smith,JS,%FirstName% %LastName%,John Smith,Positive,Not Executed,Display name with space separator
-TC034,Display name LastName FirstName,John,Smith,JS,%LastName%, %FirstName%,Smith, John,Positive,Not Executed,Display name format with comma
+TC034,Display name LastName FirstName,John,Smith,JS,"%LastName%, %FirstName%","Smith, John",Positive,Not Executed,Display name format with comma
 TC035,All initials format,John,Smith,JS,%FI%.%LI%,J.S,Positive,Not Executed,Both initials with dot separator
 TC036,No separator format,John,Smith,JS,%FirstName%%LastName%,JohnSmith,Positive,Not Executed,Concatenated without separator
 TC037,Special Unicode emoji in name,John😊,Smith,JS,%FirstName%.%LastName%,John😊.Smith,Edge Case,Not Executed,Emoji character handling
