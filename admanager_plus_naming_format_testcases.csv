@@ -1,0 +1,51 @@
+Test Case ID,Test Case Description,Input First Name,Input Last Name,Input Initials,Naming Format/Pattern,Expected Output,Test Type,Status,Comments
+TC001,Standard FirstName.LastName format,John,Smith,JS,%FirstName%.%LastName%,John.Smith,Positive,Not Executed,Basic standard format
+TC002,Standard FirstInitial+LastName format,John,Smith,JS,%FI%%LastName%,JSmith,Positive,Not Executed,First initial with full last name
+TC003,Standard FirstName+LastInitial format,John,Smith,JS,%FirstName%%LI%,JohnS,Positive,Not Executed,Full first name with last initial
+TC004,Standard FirstInitial.LastName format,John,Smith,JS,%FI%.%LastName%,J.Smith,Positive,Not Executed,First initial with dot separator
+TC005,Standard FirstName_LastName format,John,Smith,JS,%FirstName%_%LastName%,John_Smith,Positive,Not Executed,Underscore separator
+TC006,Standard FirstName-LastName format,John,Smith,JS,%FirstName%-%LastName%,John-Smith,Positive,Not Executed,Hyphen separator
+TC007,Standard LastName.FirstName format,John,Smith,JS,%LastName%.%FirstName%,Smith.John,Positive,Not Executed,Reversed order with dot
+TC008,Standard FirstInitial+LastInitial format,John,Smith,JS,%FI%%LI%,JS,Positive,Not Executed,Both initials only
+TC009,Hyphenated last name,Mary,Smith-Jones,MSJ,%FirstName%.%LastName%,Mary.Smith-Jones,Positive,Not Executed,Hyphenated last name handling
+TC010,Hyphenated first name,Jean-Paul,Dupont,JPD,%FirstName%.%LastName%,Jean-Paul.Dupont,Positive,Not Executed,Hyphenated first name handling
+TC011,Apostrophe in last name,Patrick,O'Brien,POB,%FirstName%.%LastName%,Patrick.O'Brien,Positive,Not Executed,Apostrophe character handling
+TC012,Apostrophe in first name,D'Angelo,Martinez,DM,%FirstName%.%LastName%,D'Angelo.Martinez,Positive,Not Executed,Apostrophe in first name
+TC013,Accented characters - French,François,Beauché,FB,%FirstName%.%LastName%,François.Beauché,Positive,Not Executed,French accented characters
+TC014,Accented characters - Spanish,José,García,JG,%FirstName%.%LastName%,José.García,Positive,Not Executed,Spanish accented characters
+TC015,Accented characters - German,Björn,Müller,BM,%FirstName%.%LastName%,Björn.Müller,Positive,Not Executed,German umlaut characters
+TC016,Uppercase first name,JOHN,Smith,JS,%FirstName%.%LastName%,JOHN.Smith,Positive,Not Executed,All uppercase first name
+TC017,Uppercase last name,John,SMITH,JS,%FirstName%.%LastName%,John.SMITH,Positive,Not Executed,All uppercase last name
+TC018,Lowercase first name,john,Smith,JS,%FirstName%.%LastName%,john.Smith,Positive,Not Executed,All lowercase first name
+TC019,Lowercase last name,John,smith,JS,%FirstName%.%LastName%,John.smith,Positive,Not Executed,All lowercase last name
+TC020,Mixed case handling,JoHn,SmItH,JS,%FirstName%.%LastName%,JoHn.SmItH,Positive,Not Executed,Mixed case preservation
+TC021,Very long first name,Bartholomew-Christopher-Alexander,Smith,BCAS,%FirstName%.%LastName%,Bartholomew-Christopher-Alexander.Smith,Boundary,Not Executed,Extremely long first name (>30 chars)
+TC022,Very long last name,John,Smithson-Wellington-Carrington-III,JSWCI,%FirstName%.%LastName%,John.Smithson-Wellington-Carrington-III,Boundary,Not Executed,Extremely long last name (>30 chars)
+TC023,Single character first name,J,Smith,JS,%FirstName%.%LastName%,J.Smith,Boundary,Not Executed,Single letter first name
+TC024,Single character last name,John,S,JS,%FirstName%.%LastName%,John.S,Boundary,Not Executed,Single letter last name
+TC025,Empty first name field,,Smith,S,%FirstName%.%LastName%,.Smith,Negative,Not Executed,Missing first name validation
+TC026,Empty last name field,John,,J,%FirstName%.%LastName%,John.,Negative,Not Executed,Missing last name validation
+TC027,Both fields empty,,,,%FirstName%.%LastName%,.,Negative,Not Executed,All fields empty validation
+TC028,Numbers in first name,John2,Smith,JS,%FirstName%.%LastName%,John2.Smith,Edge Case,Not Executed,Numeric characters in first name
+TC029,Numbers in last name,John,Smith3,JS,%FirstName%.%LastName%,John.Smith3,Edge Case,Not Executed,Numeric characters in last name
+TC030,First name with numbers only,123,Smith,1S,%FirstName%.%LastName%,123.Smith,Edge Case,Not Executed,First name entirely numeric
+TC031,Format with no separator,John,Smith,JS,%FirstName%%LastName%,JohnSmith,Positive,Not Executed,No separator between names
+TC032,Format with multiple separators,John,Smith,JS,%FirstName%..%LastName%,John..Smith,Edge Case,Not Executed,Double dot separator
+TC033,Duplicate handling - suffix 1,John,Smith,JS,%FirstName%.%LastName%1,John.Smith1,Positive,Not Executed,Handling duplicates with numeric suffix
+TC034,Duplicate handling - suffix 2,John,Smith,JS,%FirstName%.%LastName%2,John.Smith2,Positive,Not Executed,Second duplicate instance
+TC035,Duplicate handling - suffix 001,John,Smith,JS,%FirstName%.%LastName%001,John.Smith001,Positive,Not Executed,Padded numeric suffix format
+TC036,Chinese characters,明,李,ML,%FirstName%.%LastName%,明.李,Positive,Not Executed,Chinese character support
+TC037,Japanese characters,太郎,山田,TY,%FirstName%.%LastName%,太郎.山田,Positive,Not Executed,Japanese character support
+TC038,Arabic characters,محمد,أحمد,MA,%FirstName%.%LastName%,محمد.أحمد,Positive,Not Executed,Arabic character support
+TC039,Cyrillic characters,Иван,Петров,IP,%FirstName%.%LastName%,Иван.Петров,Positive,Not Executed,Russian Cyrillic characters
+TC040,Leading space in first name, John,Smith,JS,%FirstName%.%LastName%, John.Smith,Edge Case,Not Executed,Leading space handling
+TC041,Trailing space in last name,John,Smith ,JS,%FirstName%.%LastName%,John.Smith ,Edge Case,Not Executed,Trailing space handling
+TC042,Multiple spaces in name,John  Paul,Smith,JPS,%FirstName%.%LastName%,John  Paul.Smith,Edge Case,Not Executed,Multiple consecutive spaces
+TC043,Name with tab character,John	,Smith,JS,%FirstName%.%LastName%,John	.Smith,Edge Case,Not Executed,Tab character in name
+TC044,Special Unicode - emoji,John😀,Smith,JS,%FirstName%.%LastName%,John😀.Smith,Edge Case,Not Executed,Emoji character handling
+TC045,Display name - Full format,John,Smith,JS,%FirstName% %LastName%,John Smith,Positive,Not Executed,Full display name with space
+TC046,Display name - Last comma First,John,Smith,JS,"%LastName%, %FirstName%","Smith, John",Positive,Not Executed,Last name first format
+TC047,Display name with initials,John,Smith,JS,%FirstName% %LI%.,John S.,Positive,Not Executed,First name with last initial
+TC048,Display name with middle initial,John,Smith,JS,%FirstName% %Initials% %LastName%,John JS Smith,Positive,Not Executed,Full name with initials
+TC049,Email format lowercase,John,Smith,JS,%firstname%.%lastname%@company.com,john.smith@company.com,Positive,Not Executed,Lowercase email format
+TC050,FirstInitial + Middle + LastName,John,Smith,JMS,%FI%%MI%%LastName%,JMSmith,Positive,Not Executed,Three-part name format with middle initial
