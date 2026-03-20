@@ -1,0 +1,2 @@
+givenName,password,mailNickname,homeMDB,msExchHomeServerName
+admpuser001,Test@123,admpuser001,"CN=TestDB,CN=Databases,CN=Exchange Administrative Group (FYDIBOHF23SPDLT),CN=Administrative Groups,CN=subex,CN=Microsoft Exchange,CN=Services,CN=Configuration,DC=subex,DC=com","/o=subex/ou=Exchange Administrative Group (FYDIBOHF23SPDLT)/cn=Configuration/cn=Servers/cn=SUBEX-EX1"
